@@ -7,13 +7,13 @@ WITH aprobadas_83000 AS (
 )
 SELECT padron
 FROM notas n
-WHERE EXISTS (
+WHERE padron <> 83000
+AND (codigo, numero) IN (
     SELECT *
-    FROM aprobadas_83000 a
-    WHERE n.codigo = a.codigo AND n.numero = a.numero
+    FROM aprobadas_83000
 )
 GROUP BY padron
-HAVING COUNT(padron) = (
+HAVING COUNT(DISTINCT (codigo, numero)) = (
     SELECT COUNT(*)
     FROM aprobadas_83000
 )
@@ -22,6 +22,7 @@ HAVING COUNT(padron) = (
 
 -- | padron |
 -- +--------+
--- |   85000|
--- |   83000|
 -- |   84000|
+-- |   85000|
+
+

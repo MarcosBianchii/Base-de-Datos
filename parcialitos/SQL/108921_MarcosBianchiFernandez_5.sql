@@ -6,16 +6,17 @@
 
 
 SELECT padron, codigo, numero, nota
-FROM alumnos
-INNER JOIN notas using(padron)
-WHERE fecha_ingreso >= ALL (
-    SELECT fecha_ingreso
+FROM notas
+INNER JOIN alumnos USING(padron)
+WHERE fecha_ingreso = (
+    SELECT MAX(fecha_ingreso)
     FROM alumnos
 )
 
 -- RESULTADOS --
 
 -- | padron | codigo | numero | nota |
+-- +--------+--------+--------+------+
 -- |   88000|      75|       1|     9|
 -- |   88000|      71|      14|     8|
 -- |   88000|      75|      42|     7|

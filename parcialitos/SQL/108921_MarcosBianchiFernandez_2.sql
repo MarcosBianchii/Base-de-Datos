@@ -11,7 +11,7 @@ WHERE padron IN (
     INTERSECT
     SELECT padron
     FROM notas
-    WHERE codigo = 75 and NUMERO = 41
+    WHERE codigo = 75 AND NUMERO = 41
 )
 AND padron NOT IN (
     -- Tienen nota en 62.05 ni en 75.01

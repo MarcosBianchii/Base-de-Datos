@@ -1,4 +1,3 @@
--- Active: 1726231671702@@127.0.0.1@5432@bdd_db
 -- CREATE DATABASE facultad
 
 -- Por si se modificaron los datos

@@ -7,7 +7,7 @@ FROM (
     GROUP BY padron
 ) padron_promedio_cantidad
 INNER JOIN alumnos USING(padron)
-WHERE cantidad_notas > 4 AND promedio >= 6
+WHERE promedio >= 6 AND cantidad_notas > 4
 
 -- RESULTADOS --
 
